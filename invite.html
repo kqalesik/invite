@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Приглашение на свадьбу — Алексей & Елена</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Видео верхний блок -->
+<section class="hero-video">
+  <video autoplay muted loop playsinline poster="IMG_7936.jpg">
+    <source src="IMG_7602.mp4.MOV" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+  </video>
+  <div class="video-overlay">
+    <h1>ALEKSEI & ELENA</h1>
+  </div>
+</section>
+
+<div class="page">
+  <header>
+    <div class="logo">A & E</div>
+    <div class="title">
+      <h1>Приглашение на свадьбу</h1>
+      <p>Мы будем счастливы видеть вас!</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="date-big">2 августа 2026</div>
+      <div class="weekday">Воскресенье</div>
+      <div class="start-block">
+        <div class="label">НАЧАЛО</div>
+        <div class="line"></div>
+        <div class="time">17:00</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calendar-section">
+    <div class="calendar">
+      <div class="cal-head"><h3>Август 2026</h3></div>
+      <div class="grid">
+        <div class="dow">Пн</div><div class="dow">Вт</div><div class="dow">Ср</div><div class="dow">Чт</div><div class="dow">Пт</div><div class="dow">Сб</div><div class="dow">Вс</div>
+
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day">1</div>
+        <div class="day heart">2</div>
+
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+        <div class="day">6</div>
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12</div>
+        <div class="day">13</div>
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
+        <div class="day">20</div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+
+        <div class="day">24</div>
+        <div class="day">25</div>
+        <div class="day">26</div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
+
+        <div class="day">31</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="place">
+    <h2>Место проведения</h2>
+    <p class="rest-name">Ресторан "Complexul turistic \"Costești\""</p>
+    <p class="address">str.Complexul Turistic Costești 33, satul Costești, r-nul Ialoveni, Republica Moldova</p>
+    <a class="map-btn" target="_blank" href="https://www.google.com/maps/place/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9+%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81+%22%D0%9A%D0%BE%D1%81%D1%82%D0%B5%D1%88%D1%82%D1%8C%22/data=!4m2!3m1!1s0x0:0x61edd29ee6261aa2?sa=X&ved=1t:2428&ictx=111">Открыть на карте</a>
+  </section>
+
+  <section class="countdown">
+    <h2>До свадьбы осталось:</h2>
+    <div id="timer" class="timer"></div>
+  </section>
+
+  <section class="final">
+    <p>С уважением,<br><strong>Алексей и Елена</strong></p>
+  </section>
+</div>
+
+<script>
+  const weddingDate = new Date("2026-08-02T17:00:00").getTime();
+  function updateTimer(){
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if(diff <= 0){ document.getElementById("timer").innerHTML = "Сегодня!"; return; }
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    const s = Math.floor((diff%(1000*60))/1000);
+
+    document.getElementById("timer").innerHTML = 
+      `${d} дн · ${h} ч · ${m} мин · ${s} сек`;
+  }
+  setInterval(updateTimer,1000);
+  updateTimer();
+</script>
+
+</body>
+</html>
